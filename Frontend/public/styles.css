@@ -1,0 +1,274 @@
+.testimonial-title{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.title-img{
+    margin: 0% 20%;
+}
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+    margin-right: 120px;
+   }
+   
+   .carousel-control-next-icon {
+     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+   }
+
+   textarea { resize: none; }
+#carouselExampleControls{
+    margin-left: 0;
+}
+#testimonials{
+    background-color: #BAFBFF;
+    color:#18C5BB;
+    padding:50px 50px 50px 150px;
+}
+.title-content{
+    background-color: #BAFBFF;
+    padding: 50px 0;
+}
+
+.pos-left{
+    padding-top: 30px;
+}
+.title-image{
+    padding-left: 50px;
+    text-align: center;
+}
+
+footer{
+    background-color:#225D61;
+    height: 150px;
+    color: white;
+}
+.footer-text{
+    padding: 10px 10px;
+}
+.footer-copyright{
+    text-align: center;
+}
+.additional-newuser{
+    text-align: center;
+    color: #18C5BB;
+    padding:50px 0px;
+}
+.additionals{
+    text-align: center;
+}
+.additional-title{
+    color:#225D61;
+}
+
+.additional-image{
+    height: 200px;
+    width: 200px;
+    margin: 50px 0px;
+}
+.login-newuser{
+    padding: 20px 0;
+    text-align: center;
+    color: #18C5BB;
+}
+
+.additional-existinguser{
+    padding: 50px 0px;
+    color: #18C5BB;
+}
+.additional-existinguser:hover{
+    color: black;
+}
+.additional-register{
+    color: #18C5BB;
+}
+.exisiting{
+    color:#225D61;
+}
+
+.login-space{
+    border-radius: 5%;
+    height: 300px;
+    width: 400px;
+    background-color:#18C5BB;
+    margin: auto;
+}
+ul {
+    list-style-type: none;
+    }
+
+li{
+    padding: 10px;
+}
+
+.login-label,.pres-label{
+    padding:10px 0;
+    color: white;
+    font-weight: 500;
+}
+.login-input{
+    padding-left: 10px;
+}
+.login-title{
+    text-align: center;
+    padding: 20px;
+    color: #18C5BB;
+}
+.login-submit{
+    text-align: center;
+    color: #18C5BB;
+    background-color: white;
+    margin: 0 40%;
+}
+.login-username{
+    padding-top: 35px;
+}
+.login-links,.patient-input-label{
+    padding-top: 20px;
+    color: white;
+}
+.patient-details,.patient-illness,.patient-declaration,.patient-medicines{
+    background-color:#18C5BB;
+    border: black solid;
+    padding: 50px 0;
+}
+.pres-title{
+    color: #225D61;
+    text-align: center;
+}
+.patient-details{
+    padding: 40px 40px;
+}
+.pres-label{
+    padding-left: 50px;
+    padding-top: 30px;
+}
+.desc-label{
+    padding-top: 20px;
+    padding-left: 90px;
+    color: white;
+    font-weight: 500;
+}
+.med-text{
+    margin-top: 20px;
+}
+.description{
+    margin-left: 90px;
+
+}
+.doc-dec{
+    margin-left: 55px;
+}
+
+.add-med{
+    margin: 2% 40%;
+    width: 150px;
+    background-color: #225D61;
+}
+
+.login-button{
+    background-color: #225D61;
+
+}
+.patient-declaration{
+    border: 0;
+}
+.dec-right{
+    padding-top: 25px;
+}
+.submit-med{
+    margin: 2% 33%;
+    width: 150px;
+    background-color: #225D61;
+}
+.hospital-name{
+    margin-top: 20px;
+}
+.patient-reg-details{
+    text-align: center;
+    background-color:#18C5BB;
+    font-weight: 600;
+    font-size: large;
+}
+.patient-data{
+    padding: 10px 0;
+}
+.patient-data-input{
+    padding-top: 25px;
+}
+
+.reg-button{
+    margin: 2% 40%;
+    width: 150px;
+    background-color: #225D61;
+    margin: 150px 0;
+}
+
+.pat-reg-title{
+    color: #225D61;
+    text-align: center;
+    padding: 40px 0;
+}
+input{
+    text-align: center;
+}
+.login-select{
+    margin: 2% 40%;
+}
+.btn-back{
+    background-color: #BAFBFF;;
+}
+a{
+    text-decoration: none;
+}
+.additional-register:hover{
+    color: #225D61;
+}
+.patient_description{
+    padding: 50px 50px ;
+    background-color: #BAFBFF;
+    height: 200px;
+}
+.patient_details{
+    padding-top: 50px;
+    padding-left: 100px;
+    background-color:#18C5BB;
+    /* height: 500px; */
+    padding-bottom: 100px;
+}
+.add-pres{
+    width: 200px;
+    margin-left: 0px;
+}
+.doc-search{
+    margin-right: 100px;
+}
+.add-patid{
+    margin: 3% 10%;
+}
+
+.mini-desc{
+    background-color: #225D61;
+   margin: 5% 13% 5% 0%;
+   padding: 2% 5%;
+   border-radius: 5%;
+   color: white;
+}
+.view-pres{
+    background-color: white;
+    color: black;
+    margin-left: 150px;
+}
+.med-details{
+    margin: 15% 13% 15% 0%;
+    color: white;
+    font-size: medium;
+}
+.otp-verify{
+    margin: 5% 25%;
+}
+.pharmacy_page{
+    margin: 5% 25%;
+}
+.pharmacy_image{
+    width: 100px;
+    height: 100px;
+}
