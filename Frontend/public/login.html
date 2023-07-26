@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+
+<header >
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="/home">
+              <img src="images/logo1.png" width="30" height="30" class="d-inline-block align-top" alt=""><a href="/home"></a>
+              <span><b>Prescribe Right</b></span>          
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="/home">
+                        Home
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#contactus">
+                        Contact us
+                      </a>
+                  </li>
+                  </ul>
+            </div>
+          </nav>
+    </div>
+
+
+</header>
+
+<body >
+    <div class="title-content">
+
+        <div class="title-content">
+            <img class="title-img"src="images/Heading.jpg" alt="">
+        </div>
+        <h1 class="login-title">Login</h1>
+
+
+        <form class="login-form">
+            <div  class="btn-group login-select" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="Patient">
+                <label class="btn btn-outline-primary btn-back" for="btnradio1">Patient</label>
+              
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="Doctor" >
+                <label class="btn btn-outline-primary btn-back" for="btnradio2">Doctor</label>
+              
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="Pharmacy"  >
+                <label class="btn btn-outline-primary btn-back" for="btnradio3">Pharmacy</label>
+              </div>
+            <div class="login-space">
+            <ul>
+                <li>
+                    <label class="login-label login-username" for="login-usernam" >Username &emsp;   &emsp;  &emsp;  </label>
+                    <input class="login-input login-usernam" type="text" name="username" placeholder="Enter username">
+                </li>
+                <li>
+                    <label class="login-label" for="login-useraddr" >Ethereum address </label>
+                    <input class="login-input login-useraddr" type="text" name="ethadd" placeholder="Enter Ethereum address">
+                </li>
+                <li>
+                    <label class="login-label" for="login-passwd" >Password  &emsp;  &emsp;  &emsp; </label>
+                    <input class="login-input login-passwd" type="password" name="pass" placeholder="Enter password">
+                </li>
+                <li>
+                    <!-- <h6 class="login-links">Forgot Password Submit</h6> -->
+                    <div class="row">
+                    <div class="col-lg-6">
+                        <button class="btn btn-primary login-button">Forgot Password</button>
+                    </div>
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-2">
+                        <button class="btn btn-primary login-button" type="submit">Submit</button>
+                    </div>
+                </div>
+                   
+                </li>
+            </ul>
+            </div>
+        </form>
+        <h3 class="login-newuser"> <span class="exisiting">New User?     </span>      Register</h3>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+
+<footer id="contactus">
+    <h1 class="footer-text"><i>Keep in touch</i></h1>
+    <p class="footer-copyright">Copyright @Prescribe Right</p>
+</footer>
+</html>
