@@ -10,7 +10,6 @@ contract PRapp {
     uint32 public record_id = 0;
 
     /**Defining necessary Structures --------------------------------------------------------- */
-
     struct doctorUser {
         uint32 user_id;
         string username;
@@ -84,16 +83,49 @@ contract PRapp {
     function login(
         string memory _username,
         address _address,
-        string memory _password
+        string memory _password,
+        string memory _radiobtn
     ) public view returns (string memory) {
-        require(
-            keccak256(abi.encodePacked(doctors[_address].username)) ==
-                keccak256(abi.encodePacked(_username)) &&
-                keccak256(abi.encodePacked(doctors[_address].password)) ==
-                keccak256(abi.encodePacked(_password)),
-            "Incorrect Username or password"
-        );
-        return ("Login Successful");
+        if (
+            keccak256(abi.encodePacked(doctors[_address].usertype)) ==
+            keccak256(abi.encodePacked(_radiobtn))
+        ) {
+            require(
+                keccak256(abi.encodePacked(doctors[_address].username)) ==
+                    keccak256(abi.encodePacked(_username)) &&
+                    keccak256(abi.encodePacked(doctors[_address].password)) ==
+                    keccak256(abi.encodePacked(_password)),
+                "Incorrect Username or password"
+            );
+            return ("Doctor Login Successful");
+        } else if (
+            keccak256(abi.encodePacked(patients[_address].usertype)) ==
+            keccak256(abi.encodePacked(_radiobtn))
+        ) {
+            require(
+                keccak256(abi.encodePacked(patients[_address].username)) ==
+                    keccak256(abi.encodePacked(_username)) &&
+                    keccak256(abi.encodePacked(patients[_address].password)) ==
+                    keccak256(abi.encodePacked(_password)),
+                "Incorrect Username or password"
+            );
+            return ("Patient Login Successful");
+        } else if (
+            keccak256(abi.encodePacked(pharmacies[_address].usertype)) ==
+            keccak256(abi.encodePacked(_radiobtn))
+        ) {
+            require(
+                keccak256(abi.encodePacked(pharmacies[_address].username)) ==
+                    keccak256(abi.encodePacked(_username)) &&
+                    keccak256(
+                        abi.encodePacked(pharmacies[_address].password)
+                    ) ==
+                    keccak256(abi.encodePacked(_password)),
+                "Incorrect Username or password"
+            );
+            return ("Pharmacy Login Successful");
+        }
+        return ("Login unsuccessful");
     }
 
     /**Defining generic functions for usage in the other functions -----------------------------------------*/
@@ -101,6 +133,16 @@ contract PRapp {
     /**Function to get user address using username(emailId) */
     function getAddress(string memory _email) public view returns (address) {
         return (userAddresses[_email]);
+    }
+
+    /**Function to get userID using username(emailId)*/
+    function getUserId(string memory _email) public view returns (uint32) {
+        return (patients[userAddresses[_email]].user_id);
+    }
+
+    /**Function to get name using username(emailId)*/
+    function getName(string memory _email) public view returns (string memory) {
+        return (patients[userAddresses[_email]].name);
     }
 
     /**Defining necessary add participant functions -------------------------------------------------------- */
@@ -296,7 +338,6 @@ contract PRapp {
     }
 
     /**Defining necessary access modifiers ------------------------------------------------------ */
-
     /**To verify that the user is a doctor */
     modifier onlyDoctor() {
         require(
@@ -308,15 +349,10 @@ contract PRapp {
     }
 
     /**Defining functions related to prescriptions ---------------------------------------------- */
-
     function addNewPrescription(
         string memory _date,
-        uint32 _patientId,
-        string memory _patientName,
-        address _patientAddr,
-        uint32 _doctorId,
-        string memory _doctorName,
-        address _doctorAddr,
+        string memory _patientUsername,
+        string memory _doctorUsername,
         string memory _MedDescrip,
         string memory _Medicine,
         string memory _dosage,
@@ -327,12 +363,12 @@ contract PRapp {
         prescriptions[record_id] = prescription({
             recordID: record_id,
             date: _date,
-            patientId: _patientId,
-            patientName: _patientName,
-            patientAddr: _patientAddr,
-            doctorId: _doctorId,
-            doctorName: _doctorName,
-            doctorAddr: _doctorAddr,
+            patientId: getUserId(_patientUsername),
+            patientName: getName(_patientUsername),
+            patientAddr: getAddress(_patientUsername),
+            doctorId: getUserId(_doctorUsername),
+            doctorName: getName(_doctorUsername),
+            doctorAddr: getAddress(_doctorUsername),
             MedDescrip: _MedDescrip,
             Medicine: _Medicine,
             dosage: _dosage,
@@ -340,11 +376,11 @@ contract PRapp {
             HospitalName: _HospitalName
         });
 
-        patientUser storage p = patients[_patientAddr];
+        patientUser storage p = patients[getAddress(_patientUsername)];
         p.patientTotRecords++;
-        patientRecords[_patientAddr][p.patientTotRecords] = prescriptions[
-            record_id
-        ];
+        patientRecords[getAddress(_patientUsername)][
+            p.patientTotRecords
+        ] = prescriptions[record_id];
     }
 
     function getPrescription(
