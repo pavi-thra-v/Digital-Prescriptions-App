@@ -3,42 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
     <script src="app.js" defer></script>
-    <link rel="stylesheet" href="styles.css"/>
-    <title>Registration Form</title>
 </head>
-<body>
-    <heading>
-        <h2>User Registration Form</h2>
-    </heading>
-    <form class="AddUserForm">
-        <label for="EthAddr">Ethereum Address</label>
-        <input type="text" id="EthAddr" required>
-        <label for="FullName">Name:</label>
-        <input type="text" id="FullName" required>
-        <label for="emailId">Email</label>
-        <input type="text" id="emailId" required>
-        <label for="mobileNum">Mobile Num</label>
-        <input type="text" id="mobileNum" required>
-        <label for="regNum">Reg Num</label>
-        <input type="text" id="regNum" required>
-        <label for="regyear">Reg Year</label>
-        <input type="text" id="regyear" required>
-        <label for="stateMed">State Medical Council</label>
-        <input type="text" id="stateMed" required>
-        <label for="Aadhaar">Aadhaar Number</label>
-        <input type="text" id="Aadhaar" required>
-        <label for="ConfirmPass">ConfirmPass</label>
-        <input type="text" id="ConfirmPass" required>
-        <label for="UserDesig">User Designation</label>
-        <input type="text" id="UserDesig" required>
-        <button type="submit" id="user-reg-btn">Add User</button>
-    </form>
-        /*<form class="UserProfile">
-            <label for="ethereumAddr">Ethereum Address</label>
-            <input type="text" id="ethereumAddr" required>
-            <button type="submit" id="profile-btn">view Profile</button>
-        </form>
-        <contents class="ProfileContents"></contents>*/
+
+<header >
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="#">
+              <img src="images/logo1.png" width="30" height="30" class="d-inline-block align-top" alt="">
+              <span><b>Prescribe Right</b></span>          
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="/Login">
+                        Login
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <!-- Add the href attribute to the anchor link in the header section -->
+                      <a class="nav-link" href="#Register" >Register</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link"  href="#Contactus">Contact us</a>
+                  </li>
+                  </ul>
+            </div>
+          </nav>
+    </div>
+
+
+</header>
+<body >
+    <div class="title-content">
+        <img class="title-img"src="images/Heading.jpg" alt="">
+    </div>
+    <section id="testimonials">
+ 
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class ="row">
+                    <div class="col-lg-3 ">
+                        <img width = "200" height = "300" class="testimonial-image" src="images/doctor providing prescription 1.png" alt="doctor-profile">
+                    </div>
+                    <div class="col-lg-9">
+                        <h1 class="testimonial-title"><b>Doctor</b></h1>
+                        <h3 class="testimonial-text">Can update the prescriptions of the patients to the website</h3>
+                        <h3 class="testimonial-text">Can check the patients medical history </h3>
+                        <h3 class="testimonial-text">Provide details for the patients to reach out to them</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class ="row">
+                    <div class="col-lg-3 ">
+                        <img width = "200" height = "300" class="testimonial-image" src="images/patient.png" alt="doctor-profile">
+                    </div>
+                    <div class="col-lg-9">
+                        <h1 class="testimonial-title"><b>Patients</b></h1>
+                        <h3 class="testimonial-text">Can update the prescriptions of the patients to the website</h3>
+                        <h3 class="testimonial-text">Can check the patients medical history </h3>
+                        <h3 class="testimonial-text">Provide details for the patients to reach out to them</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class ="row">
+                    <div class="col-lg-3 ">
+                        <img width = "200" height = "300" class="testimonial-image" src="images/pharmacy.png" alt="doctor-profile">
+                    </div>
+                    <div class="col-lg-9">
+                        <h1 class="testimonial-title"><b>Pharmacists</b></h1>
+                        <h3 class="testimonial-text">Can update the prescriptions of the patients to the website</h3>
+                        <h3 class="testimonial-text">Can check the patients medical history </h3>
+                        <h3 class="testimonial-text">Provide details for the patients to reach out to them</h3>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+          
+        
+          </section>
+    <div class="additionals" id="Register">
+        <h3 class="additional-newuser">New User?</h3>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <h1 class="additional-title"><b>DOCTOR</b></h1>
+                <img class="additional-image" src="images/doctor 1.png" alt="">
+                <h3 class="additional-register"><a class="nav-link" href="/addDoctorUser"><button type="submit">Register</button></a></h3>
+
+            </div>
+            <div class="col-lg-4">
+                <h1 class="additional-title"><b>PATIENT</b></h1>
+                <img class="additional-image" src="images/patient with cold 1.png" alt="">
+                <h3 class="additional-register"><a class="nav-link" href="/addPatientUser"><button type="submit">Register</button></a></h3>
+            </div>
+            <div class="col-lg-4">
+                <h1 class="additional-title"><b>PHARMACY</b></h1>
+                <img class="additional-image" src="images/pharmacy 1.png" alt="">
+                <h3 class="additional-register"><a class="nav-link" href="/addPharmacyUser"><button type="submit">Register</button></a></h3>
+            </div>
+
+        </div>
+       
+        <h3 class="additional-existinguser"> <span class="exisiting">Existing User?     </span>      Sign in</h3>
+
+    </div>
+
+    <script>// Listen for the 'popstate' event to detect when the user navigates back
+        window.addEventListener('popstate', () => {
+          // Check if the user has logged out
+          if (sessionStorage.getItem('loggedIn') !== 'true') {
+            // Redirect the user back to the homepage to prevent going back to the logged-out state
+            window.location.href = '/'; // Replace '/' with the actual URL of your homepage
+          }
+        });
+        // Function to handle smooth scrolling to the specified section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
+
+<footer id="Contactus">
+    <h1 class="footer-text"><i>Keep in touch</i></h1>
+    <p class="footer-copyright">Copyright @Prescribe Right</p>
+</footer>
 </html>
