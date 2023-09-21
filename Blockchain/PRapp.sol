@@ -38,6 +38,7 @@ contract PRapp {
         string usertype;
         uint32 patientId;
         uint32 patientTotRecords;
+        //mapping(address => bool) authorizedUsers;
         //mapping(uint32 => prescription) PrescriptionHistory;
     }
 
@@ -78,6 +79,17 @@ contract PRapp {
     mapping(uint32 => prescription) public prescriptions;
     mapping(address => mapping(uint32 => prescription)) public patientRecords;
     mapping(string => address) public userAddresses;
+
+    //mapping(address => mapping(uint32 => string)) public authUser;
+
+    /** Authorization ---------------------------------------------------------------------------- */
+    /*function authorizeUser(string memory _username) public {
+        patients[msg.sender].authorizedUsers[getAddress(_username)] = true;
+    }
+
+    function revokeAuthorization(string memory _username) public {
+        patients[msg.sender].authorizedUsers[getAddress(_username)] = false;
+    }*/
 
     /**Function to login ----------------------------------------------------------------------- */
     function login(
@@ -141,8 +153,16 @@ contract PRapp {
     }
 
     /**Function to get name using username(emailId)*/
-    function getName(string memory _email) public view returns (string memory) {
+    function getPatName(
+        string memory _email
+    ) public view returns (string memory) {
         return (patients[userAddresses[_email]].name);
+    }
+
+    function getDocName(
+        string memory _email
+    ) public view returns (string memory) {
+        return (doctors[userAddresses[_email]].name);
     }
 
     /**Defining necessary add participant functions -------------------------------------------------------- */
@@ -364,10 +384,10 @@ contract PRapp {
             recordID: record_id,
             date: _date,
             patientId: getUserId(_patientUsername),
-            patientName: getName(_patientUsername),
+            patientName: getPatName(_patientUsername),
             patientAddr: getAddress(_patientUsername),
             doctorId: getUserId(_doctorUsername),
-            doctorName: getName(_doctorUsername),
+            doctorName: getDocName(_doctorUsername),
             doctorAddr: getAddress(_doctorUsername),
             MedDescrip: _MedDescrip,
             Medicine: _Medicine,
@@ -391,5 +411,9 @@ contract PRapp {
             _recordId
         ];
         return P;
+    }
+
+    function updatePresReuse(uint32 _recordId, uint8 _PresReuseLim) public {
+        prescriptions[_recordId].PrescripReuseLim = _PresReuseLim;
     }
 }
