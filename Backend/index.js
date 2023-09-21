@@ -68,9 +68,1109 @@ var userAddress;
 const ganacheUrl = 'HTTP://127.0.0.1:7545'; // Replace with your Ganache RPC URL
 const web3 = new Web3(new Web3.providers.HttpProvider(ganacheUrl));
 
-const contractABI = /*Replace with your contract ABI*/;
+const contractABI =  [
+  {
+    "inputs": [],
+    "name": "doctor_id",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "doctors",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "user_id",
+        "type": "uint32"
+      },
+      {
+        "internalType": "string",
+        "name": "username",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "userAddr",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "email",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "mobile_num",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "reg_num",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "reg_yr",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "state_med_name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "aadhaar_num",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "password",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "usertype",
+        "type": "string"
+      },
+      {
+        "internalType": "uint32",
+        "name": "doctorId",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "name": "patientRecords",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "recordID",
+        "type": "uint32"
+      },
+      {
+        "internalType": "string",
+        "name": "date",
+        "type": "string"
+      },
+      {
+        "internalType": "uint32",
+        "name": "patientId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "string",
+        "name": "patientName",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "patientAddr",
+        "type": "address"
+      },
+      {
+        "internalType": "uint32",
+        "name": "doctorId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "string",
+        "name": "doctorName",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "doctorAddr",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "MedDescrip",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "Medicine",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "dosage",
+        "type": "string"
+      },
+      {
+        "internalType": "uint8",
+        "name": "PrescripReuseLim",
+        "type": "uint8"
+      },
+      {
+        "internalType": "string",
+        "name": "HospitalName",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "patient_id",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "patients",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "user_id",
+        "type": "uint32"
+      },
+      {
+        "internalType": "string",
+        "name": "username",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "userAddr",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "email",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "mobile_num",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "aadhaar_num",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "password",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "usertype",
+        "type": "string"
+      },
+      {
+        "internalType": "uint32",
+        "name": "patientId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "patientTotRecords",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "pharmacies",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "user_id",
+        "type": "uint32"
+      },
+      {
+        "internalType": "string",
+        "name": "username",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "userAddr",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "pharmName",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "pharmBranch",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "email",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "mobile_num",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "aadhaar_num",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "password",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "usertype",
+        "type": "string"
+      },
+      {
+        "internalType": "uint32",
+        "name": "pharmacyId",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "pharmacy_id",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "name": "prescriptions",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "recordID",
+        "type": "uint32"
+      },
+      {
+        "internalType": "string",
+        "name": "date",
+        "type": "string"
+      },
+      {
+        "internalType": "uint32",
+        "name": "patientId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "string",
+        "name": "patientName",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "patientAddr",
+        "type": "address"
+      },
+      {
+        "internalType": "uint32",
+        "name": "doctorId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "string",
+        "name": "doctorName",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "doctorAddr",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "MedDescrip",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "Medicine",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "dosage",
+        "type": "string"
+      },
+      {
+        "internalType": "uint8",
+        "name": "PrescripReuseLim",
+        "type": "uint8"
+      },
+      {
+        "internalType": "string",
+        "name": "HospitalName",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "record_id",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "totalUsers",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "name": "userAddresses",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_username",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "_address",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "_password",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_radiobtn",
+        "type": "string"
+      }
+    ],
+    "name": "login",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_email",
+        "type": "string"
+      }
+    ],
+    "name": "getAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_email",
+        "type": "string"
+      }
+    ],
+    "name": "getUserId",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_email",
+        "type": "string"
+      }
+    ],
+    "name": "getPatName",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_email",
+        "type": "string"
+      }
+    ],
+    "name": "getDocName",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_addr",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_email",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_mobile_num",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_reg_num",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_reg_yr",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_state_med_name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_aadhaar_num",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_password",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_usertype",
+        "type": "string"
+      }
+    ],
+    "name": "addDoctorUser",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_addr",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "_name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_email",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_mobile_num",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_aadhaar_num",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_password",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_usertype",
+        "type": "string"
+      }
+    ],
+    "name": "addPatientUser",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_addr",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "_pharmName",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_pharmBranch",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_email",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_mobile_num",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_aadhaar_num",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_password",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_usertype",
+        "type": "string"
+      }
+    ],
+    "name": "addPharmacyUser",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getDoctor",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "getPatient",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [],
+    "name": "getPharmacy",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      },
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_date",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_patientUsername",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_doctorUsername",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_MedDescrip",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_Medicine",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_dosage",
+        "type": "string"
+      },
+      {
+        "internalType": "uint8",
+        "name": "_PrescripReuseLim",
+        "type": "uint8"
+      },
+      {
+        "internalType": "string",
+        "name": "_HospitalName",
+        "type": "string"
+      }
+    ],
+    "name": "addNewPrescription",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_patientUserName",
+        "type": "string"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_recordId",
+        "type": "uint32"
+      }
+    ],
+    "name": "getPrescription",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint32",
+            "name": "recordID",
+            "type": "uint32"
+          },
+          {
+            "internalType": "string",
+            "name": "date",
+            "type": "string"
+          },
+          {
+            "internalType": "uint32",
+            "name": "patientId",
+            "type": "uint32"
+          },
+          {
+            "internalType": "string",
+            "name": "patientName",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "patientAddr",
+            "type": "address"
+          },
+          {
+            "internalType": "uint32",
+            "name": "doctorId",
+            "type": "uint32"
+          },
+          {
+            "internalType": "string",
+            "name": "doctorName",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "doctorAddr",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "MedDescrip",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "Medicine",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "dosage",
+            "type": "string"
+          },
+          {
+            "internalType": "uint8",
+            "name": "PrescripReuseLim",
+            "type": "uint8"
+          },
+          {
+            "internalType": "string",
+            "name": "HospitalName",
+            "type": "string"
+          }
+        ],
+        "internalType": "struct PRapp.prescription",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "_recordId",
+        "type": "uint32"
+      },
+      {
+        "internalType": "uint8",
+        "name": "_PresReuseLim",
+        "type": "uint8"
+      }
+    ],
+    "name": "updatePresReuse",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+];
 
-  const contractAddress = ''; // Replace with the address of your deployed SupplyChain smart contract
+  const contractAddress = '0xB810CeC857C956387F8f4e9c3e31859B83e55d70'; // Replace with the address of your deployed SupplyChain smart contract
   const inboxContract = new web3.eth.Contract(contractABI, contractAddress);
   const gasLimit = 900000; // Set your desired gas limit here
 
@@ -161,22 +1261,107 @@ const contractABI = /*Replace with your contract ABI*/;
   }
 
 
-  /*app.post('/homePatient', async (req, res) => {
+  app.post('/homePatient', async (req, res) => {
     const { username, recID } = req.body;
     console.log(username);
     console.log(recID);
     userAddress = await inboxContract.methods.getAddress(username).call();
     console.log(userAddress);
     try {
-      const msg = await inboxContract.methods.getPrescription(username,recID).call({from: addR, gas: gasLimit});
+      const msg = await inboxContract.methods.getPrescription(username,recID).call({from: userAddress, gas: gasLimit});
       // Now you can display the user details on your website or use them as needed
+      
+      msg["recordID"] = Number(msg['recordID']);
+      msg["patientId"] = Number(msg['patientId']);
+      msg["doctorId"] = Number(msg["doctorId"]),
+      msg["PrescripReuseLim"] = Number(msg["PrescripReuseLim"]);  
       console.log( msg);
-      res.json({ Msg : msg}); // Respond with the fetched user details
+      res.json({ recordID: msg["recordID"],
+        date: msg['date'],
+        patientId: msg["patientId"],
+        patientName: msg["patientName"],
+        patientAddr: msg["patientAddr"],
+        doctorId: msg["doctorId"],
+        doctorName: msg["doctorName"],
+        doctorAddr: msg["doctorAddr"],
+        MedDescrip: msg["MedDescrip"],
+        Medicine: msg["Medicine"],
+        dosage: msg["dosage"],
+        PrescripReuseLim: msg["PrescripReuseLim"],
+        HospitalName: msg["HospitalName"]}); // Respond with the fetched user details  
     } catch (error) {
+      console.log(error);
       console.error("Error Fetching pharmacy details");
     }
-  });*/
+  });
 
+  app.post('/homePharmacy', async (req, res) => {
+    const { username, recID } = req.body;
+    console.log(username);
+    console.log(recID);
+    //userAddress = await inboxContract.methods.getAddress(username).call();
+    //console.log(userAddress);
+    try {
+      const msg = await inboxContract.methods.getPrescription(username,recID).call({ gas: gasLimit});
+      // Now you can display the user details on your website or use them as needed
+      
+      msg["recordID"] = Number(msg['recordID']);
+      msg["patientId"] = Number(msg['patientId']);
+      msg["doctorId"] = Number(msg["doctorId"]),
+      msg["PrescripReuseLim"] = Number(msg["PrescripReuseLim"]);  
+      console.log( msg);
+      res.json({ recordID: msg["recordID"],
+        date: msg['date'],
+        patientId: msg["patientId"],
+        patientName: msg["patientName"],
+        patientAddr: msg["patientAddr"],
+        doctorId: msg["doctorId"],
+        doctorName: msg["doctorName"],
+        doctorAddr: msg["doctorAddr"],
+        MedDescrip: msg["MedDescrip"],
+        Medicine: msg["Medicine"],
+        dosage: msg["dosage"],
+        PrescripReuseLim: msg["PrescripReuseLim"],
+        HospitalName: msg["HospitalName"]}); // Respond with the fetched user details  
+    } catch (error) {
+      console.log(error);
+      console.error("Error Fetching pharmacy details");
+    }
+  });
+
+  app.post('/homeDoctor', async (req, res) => {
+    const { username, recID } = req.body;
+    console.log(username);
+    console.log(recID);
+    //userAddress = await inboxContract.methods.getAddress(username).call();
+    //console.log(userAddress);
+    try {
+      const msg = await inboxContract.methods.getPrescription(username,recID).call({ gas: gasLimit});
+      // Now you can display the user details on your website or use them as needed
+      
+      msg["recordID"] = Number(msg['recordID']);
+      msg["patientId"] = Number(msg['patientId']);
+      msg["doctorId"] = Number(msg["doctorId"]),
+      msg["PrescripReuseLim"] = Number(msg["PrescripReuseLim"]);  
+      console.log( msg);
+      res.json({ recordID: msg["recordID"],
+        date: msg['date'],
+        patientId: msg["patientId"],
+        patientName: msg["patientName"],
+        patientAddr: msg["patientAddr"],
+        doctorId: msg["doctorId"],
+        doctorName: msg["doctorName"],
+        doctorAddr: msg["doctorAddr"],
+        MedDescrip: msg["MedDescrip"],
+        Medicine: msg["Medicine"],
+        dosage: msg["dosage"],
+        PrescripReuseLim: msg["PrescripReuseLim"],
+        HospitalName: msg["HospitalName"]}); // Respond with the fetched user details  
+    } catch (error) {
+      console.log(error);
+      console.error("Error Fetching pharmacy details");
+    }
+  });
 
   app.post('/login', async (req, res) => {
     const { usname, pass, radioBtn } = req.body;
@@ -270,6 +1455,12 @@ const contractABI = /*Replace with your contract ABI*/;
   });
 
 
+
+
+  
+
+
+  
   const port = 3000;
   app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
