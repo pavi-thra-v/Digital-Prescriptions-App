@@ -45,49 +45,23 @@
     </div>
 
     <div class="patient_details ">
-        <input style="margin-left: 200px;" type="text" placeholder="Search using Prescription ID" class="w-25 doc-search">
-        <button class="btn btn-primary login-button">Get Prescription</button>
+      <form class="doctor-pres-get">
+        <input class="w-25 doc-search userID" style="margin-left: 50px;" type="text" placeholder="Enter Patient User name" >
+        <input class="w-25 doc-search presID" style="margin-right: 50px;" type="text" placeholder="Enter Prescription ID" >
+        <button class="btn btn-primary login-button" type="submit">Get Prescription</button>
+      </form>
         <div class="row " style="padding-top: 20px;">
         <div class="col-lg-8"></div>
         <div class="col-lg-3">
         </div>
     </div>
 
-
-    <div class="mini-desc">
-        <div class="row">
-          <div class="col-lg-6">
-            <p>Doctor:   <span>Doctor Name</span>            </p>
-            <p>Hospital:   <span>Hospital Name</span>            </p>
-          </div>
-          <div class="col-lg-6">
-            <p>Record ID: <span>123456789</span></p>
-            <p>Date:   <span>24/07/2023</span>   <button class="btn btn-primary view-pres" type="submit">View</button>         </p>
-            
-          </div>
-        </div>
-
-      </div>
-      <div class="otp-verify">
-        <input type="number" placeholder="Enter OTP sent to your Mail"><span>&emsp;&emsp;</span><i class="fa-solid fa-check" style="color: #ff0000;"></i>
-        <button class="btn btn-primary view-pres">Close</button>
-      </div>
-
-      <div class="show-pres mini-desc">
-        <div class="row">
-          <div class="col-lg-6">
-            <h5 class="med-details">Medicical Illness Description: <span>Fever</span></h5>
-            <h5 class="med-details">Medicine: <span>Paracetamol - </span><span>500mg</span></h5>
-            <h5 class="med-details">Dosage: <span>Morning and night after food</span></h5>
-            <h5 class="med-details">Prescription Reuse Limit: <span>5</span></h5>
-            <h5 class="med-details">Hospital Name: <span>XYZ Clinic</span></h5>
-          </div>
-        </div>
-
-      </div>
-
-
+      <div class="presDescription-Pat">      </div>
+        
+      
     </div>
+  
+    
 
     <script>
       // Retrieve the full name from sessionStorage
@@ -97,6 +71,44 @@
       const fullNameContainer = document.querySelector('.doctor-description');
       fullNameContainer.innerHTML = `<h1>Welcome, Dr.${fullName}</h1>
       <button class="btn btn-primary add-med add-pres" type="submit"><a class="nav-link" href="/NewPrescription">New Prescription<i class="fa-solid fa-circle-plus" style="color: #a52222;"></i></button>`;
+        
+        // Define the list of keys to retrieve from sessionStorage
+      const keysToRetrieve = ["recordID", 'date', "patientId", "patientName", "patientAddr", "doctorId", "doctorName", "doctorAddr", "MedDescrip", "Medicine", "dosage", "PrescripReuseLim", "HospitalName"];
+      // Initialize an empty object to store the retrieved values
+      const userData = {};
+      // Loop through the keys and retrieve the corresponding values from sessionStorage
+      for (const key of keysToRetrieve) {
+        const value = sessionStorage.getItem(key);
+        userData[key] = value;
+      }
+      console.log(userData);
+      const PresContainer = document.querySelector('.presDescription-Pat');
+      PresContainer.innerHTML = `<div class="mini-desc">
+        <div class="row">
+          <div class="col-lg-6">
+            <p>Doctor:   <span>${userData['doctorName']}</span>            </p>
+            <p>PatientName:   <span>${userData['patientName']}</span>            </p>
+          </div>
+          <div class="col-lg-6">
+            <p>Record ID: <span>${userData['recordID']}</span></p>
+            <p>Date:   <span>${userData['date']}</span>           </p>
+            
+          </div>
+        </div>
+
+      </div>
+
+      <div class="show-pres mini-desc">
+        <div class="row">
+          <div class="col-lg-6">
+            <h5 class="med-details">Medicical Illness Description: <span>${userData['MedDescrip']}</span></h5>
+            <h5 class="med-details">Medicine: <span>${userData['Medicine']}</span></h5>
+            <h5 class="med-details">Dosage: <span>${userData['dosage']}</span></h5>
+            <h5 class="med-details">Prescription Reuse Limit: <span>${userData['PrescripReuseLim']}</span></h5>
+            <h5 class="med-details">Hospital Name: <span>${userData['HospitalName']}</span></h5>
+          </div>
+        </div>
+      </div>`;
     </script>
     <script src="https://kit.fontawesome.com/a427ce1ab7.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
