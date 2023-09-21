@@ -141,10 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-/**Patient - to get his prescription ---------------------------------------------- */
-      /*const handlePatgetPres = addEventListener('submit', async (e) =>{
+/* Patient - to get his prescription ---------------------------------------------- */
+      const handlePatgetPres = addEventListener('submit', async (e) =>{
         e.preventDefault();
-        const recID = document.querySelector(".presID");
+        const recID = document.querySelector(".presID").value;
         console.log(recID); 
         const username = sessionStorage.getItem('username');
         console.log(username)
@@ -158,18 +158,101 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const data = await response.json();
         console.log(data);
-        //const pptyToStore = ['userid', 'username', 'ethaddr', 'fullName', 'email', 'mobnum', 'regnum', 'regyr', 'statemed', 'aadhaar', 'password', 'desig', 'doctorid'];
+        const pptyToStore = ["recordID", 'date', "patientId", "patientName", "patientAddr", "doctorId", "doctorName", "doctorAddr", "MedDescrip", "Medicine", "dosage", "PrescripReuseLim", "HospitalName"];
         // Loop through the properties and store them in sessionStorage
-        //for (const prop of pptyToStore) {
-          //sessionStorage.setItem(prop, data[prop]);
-      //}
-        window.location.href = '/Patient'; // Redirect without passing fullName as a query parameter
+        for (const prop of pptyToStore) {
+          sessionStorage.setItem(prop, data[prop]);
+      }
+        window.location.href = '/homePatient'; // Redirect without passing fullName as a query parameter
         alert('Prescription Fetched successfully.');
-    });*/
+    });
+
+  /* Pharmacist - to get patient prescription ---------------------------------------------- */
+    const handlePharmgetPres = addEventListener('submit', async (e) =>{
+      e.preventDefault();
+      const recID = document.querySelector(".presID").value;
+      console.log(recID); 
+      const username = document.querySelector('.userID').value;
+      console.log(username)
+      const response = await fetch('http://localhost:3000/homePharmacy', {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json'
+        }, 
+        body: JSON.stringify({recID : recID, username : username})
+      });
+
+      const data = await response.json();
+      console.log(data);
+      const pptyToStore = ["recordID", 'date', "patientId", "patientName", "patientAddr", "doctorId", "doctorName", "doctorAddr", "MedDescrip", "Medicine", "dosage", "PrescripReuseLim", "HospitalName"];
+      // Loop through the properties and store them in sessionStorage
+      for (const prop of pptyToStore) {
+        sessionStorage.setItem(prop, data[prop]);
+    }
+      window.location.href = '/homePharmacy'; // Redirect without passing fullName as a query parameter
+      alert('Patient Prescription Fetched successfully.');
+  });
+
+  /* Pharmacist - to get patient prescription ---------------------------------------------- */
+  /*const handleDocgetPres = addEventListener('submit', async (e) =>{
+    e.preventDefault();
+    const recID = document.querySelector(".presID").value;
+    console.log(recID); 
+    const username = document.querySelector('.userID').value;
+    console.log(username)
+    const response = await fetch('http://localhost:3000/homeDoctor', {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json'
+      }, 
+      body: JSON.stringify({recID : recID, username : username})
+    });
+
+    const data = await response.json();
+    console.log(data);
+    const pptyToStore = ["recordID", 'date', "patientId", "patientName", "patientAddr", "doctorId", "doctorName", "doctorAddr", "MedDescrip", "Medicine", "dosage", "PrescripReuseLim", "HospitalName"];
+    // Loop through the properties and store them in sessionStorage
+    for (const prop of pptyToStore) {
+      sessionStorage.setItem(prop, data[prop]);
+  }
+    window.location.href = '/homeDoctor'; // Redirect without passing fullName as a query parameter
+    alert('Patient Prescription Fetched successfully.');
+});*/
 
 
+// Function to decrement the prescription count in sessionStorage
+function decrementPrescriptionCount() {
+  // Check if the prescriptionCount exists in sessionStorage
+  if (sessionStorage.getItem("PrescripReuseLim")) {
+      // Get the current count as an integer
+      let count = parseInt(sessionStorage.getItem("PrescripReuseLim"));
+      
+      // Check if the count is greater than 0 before decrementing
+      if (count > 0) {
+          count--;
+          // Update the count in sessionStorage
+          sessionStorage.setItem("PrescripReuseLim", count.toString());
 
+      }
+  }
+}
 
+const handlePresCnt = addEventListener('submit', function(event) {
+  // Prevent the form from submitting (if needed)
+  console.log("1");
+  event.preventDefault;
+  // Add your code here to handle the "Checked out" button click
+  if (event.submitter && event.submitter.id === 'chk-out1'){
+  console.log("Checked out button clicked");
+  // Call the function to decrement the count
+  decrementPrescriptionCount();
+  alert('Medicines Checked Out. Prescription Reuse Limit updated successfully.');
+  window.location.href = '/homePharmacy'; // Redirect without passing fullName as a query parameter
+  }
+  // Now, you can submit the form or perform other actions if required
+  // For example, you can submit the form programmatically
+  // event.target.submit();
+});
 
 /**Login Radio Button Select ------------------------------------------------------------- */
       
@@ -193,8 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
       radioButtons.forEach((radio) => {
         radio.addEventListener('click', getvalue);
       });
-
-
 
 
 
@@ -251,22 +332,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-
+  
 
 
 /**Clearing Session storage on Logout ------------------------------------------------------------*/
       const logoutButton = document.querySelector('.logout-button');
 
       // Add a click event listener to the logout button
-      logoutButton.addEventListener('click', () => {
+      logoutButton.addEventListener('click', (event) => {
+        event.preventDefault;
+        console.log("2");
         // Clear the sessionStorage
         sessionStorage.clear();
 
         // Redirect the user to the logout page
-        window.location.href = '/logout'; // Replace '/logout' with the actual URL of your logout page
+        window.location.href = '/Home'; // Replace '/logout' with the actual URL of your logout page
         // Manipulate the browser history to replace the current URL with the homepage URL
-        history.pushState({}, '', '/'); // Replace '/' with the actual URL of your homepage
+        history.replaceState({}, '', '/Home'); // Replace '/' with the actual URL of your homepage
     });
+
+
+
 
 
 
@@ -279,6 +365,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const AddPharmUserForm = document.querySelector('.AddPharmUserForm');
       const AddPresForm = document.querySelector('.new-pres.generate');
       const GetPresByPat = document.querySelector('.GetPresByID');
+      const GetPresByPharm = document.querySelector('.pharm-pres-get');
+      //const GetPresByDoctor = document.querySelector('.doctor-pres-get')
+      const DecPresCount = document.querySelector('.chk-out');
 
       LoginSpace.addEventListener('submit', handleLoginSubmit);
       AddDocUserForm.addEventListener('submit', handleAddDocUser);
@@ -286,4 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
       AddPharmUserForm.addEventListener('submit', handleAddPharmUser);
       AddPresForm.addEventListener('submit',handleAddNewPres);
       GetPresByPat.addEventListener('submit', handlePatgetPres);
+      GetPresByPharm.addEventListener('submit',handlePharmgetPres);
+      //GetPresByDoctor.addEventListener('submit',handleDocgetPres);
+      DecPresCount.addEventListener('submit',handlePresCnt);
 });
